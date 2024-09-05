@@ -45,7 +45,7 @@ class Category extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name')->sortable()->rules('required', 'max:255'),
-            BelongsTo::make('Parent', 'parent', Category::class)->nullable()->sortable()->filterable()->searchable(),
+            BelongsTo::make('Parent', 'parent', Category::class)->nullable()->sortable()->filterable()->searchable()->onlyOnIndex(),
         ];
     }
 
